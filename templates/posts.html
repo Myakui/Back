@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Все сценарии
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все сценарии текстов</h1>
+
+    {% if scenarios|length > 0%}
+        {% for el in scenarios%}
+        <div class="alert alert-info">
+            <h2> {{el.title}}</h2>
+            <p> {{el.intro}}</p>
+            <p><b>Дата: {{el.date.date()}}</b></p>
+            <a href="/posts/{{el.id}}" class="btn btn-warning"> Детальнее </a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p> У нас еще нет текстов на сайте</p>
+    {% endif %}
+</div>
+{% endblock %}
